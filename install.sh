@@ -27,7 +27,7 @@ sudo pacman -S brightnessctl xwallpaper htop lf xorg-xset xdotool alsa-utils \
 	libxft libxinerama scrot xf86-video-intel bluez bluez-utils xorg-setxkbmap
 
 # Clone dotfiles repository
-git clone --depth=1 https://gitlab.com/amrit-44404/archrice $HOME/archrice
+git clone --depth=1 https://github.com/nyx-void/archrice $HOME/archrice
 
 # Create necessary directories
 mkdir -p $HOME/.local/share $HOME/.config $HOME/.local/src $HOME/.local/bin $HOME/.local/hugo-dir
@@ -46,10 +46,10 @@ cp -r $HOME/archrice/.local/share/* $HOME/.local/share
 \cp $HOME/archrice/.xinitrc $HOME/.xinitrc
 
 # Clone walls
-git clone --depth=1 https://gitlab.com/amrit-44404/void-wall $HOME/.local/share/void-wall
+git clone --depth=1 https://github.com/nyx-void/void-wall $HOME/.local/share/void-wall
 
 # Clone and build dwm environment
-git clone --depth=1 https://gitlab.com/amrit-44404/arch-dwm $HOME/.local/src/arch-dwm
+git clone --depth=1 https://github.com/nyx-void/arch-dwm $HOME/.local/src/arch-dwm
 
 sudo make -C ~/.local/src/arch-dwm/dwm/ clean install
 sudo make -C ~/.local/src/arch-dwm/dmenu/ clean install
