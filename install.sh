@@ -1,4 +1,4 @@
-cat << "EOF"
+cat <<"EOF"
 #################################################
     _          _        _     ___
    /_\  _ _ __| |_    _| |_  |   \__ __ ___ __
@@ -11,20 +11,20 @@ EOF
 # Disable Wifi-Power Saver
 read -n1 -rep 'Would you like to disable wifi powersave? (y,n)' WIFI
 if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
-    LOC="/etc/NetworkManager/conf.d/wifi-powersave.conf"
-    echo -e "The following has been added to $LOC.\n"
-    echo -e "[connection]\nwifi.powersave = 2" | sudo tee -a $LOC
-    echo -e "\n"
-    echo -e "Restarting NetworkManager service...\n"
-    sudo systemctl restart NetworkManager
-    sleep 3
+  LOC="/etc/NetworkManager/conf.d/wifi-powersave.conf"
+  echo -e "The following has been added to $LOC.\n"
+  echo -e "[connection]\nwifi.powersave = 2" | sudo tee -a $LOC
+  echo -e "\n"
+  echo -e "Restarting NetworkManager service...\n"
+  sudo systemctl restart NetworkManager
+  sleep 3
 fi
 
 # Install essential packages
 sudo pacman -S brightnessctl xwallpaper htop lf xorg-xset xdotool alsa-utils \
-	ttf-font-awesome ttf-hack ttf-hack-nerd noto-fonts-emoji xcompmgr fastfetch \
-	firefox nsxiv neovim mpv newsboat bleachbit unzip zathura zathura-pdf-poppler \
-	libxft libxinerama scrot xf86-video-intel bluez bluez-utils zed
+  ttf-font-awesome ttf-hack ttf-hack-nerd noto-fonts-emoji xcompmgr fastfetch \
+  firefox nsxiv neovim mpv newsboat bleachbit unzip zathura zathura-pdf-poppler \
+  libxft libxinerama scrot xf86-video-intel bluez bluez-utils
 
 # xorg-setxkbmap
 
@@ -35,7 +35,7 @@ git clone --depth=1 https://github.com/nyx-void/archrice $HOME/archrice
 mkdir -p $HOME/.local/share $HOME/.config $HOME/.local/src $HOME/.local/bin $HOME/.local/hugo-dir
 
 # Copy configuration files
-cat << "EOF"
+cat <<"EOF"
 
 => copying configs from dotfiles"
 
@@ -72,7 +72,7 @@ mv $HOME/arch-install $HOME/.local/git-repos
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 
-cat << "EOF"
+cat <<"EOF"
 ####################################
 Installation completed successfully.
 ####################################
