@@ -20,6 +20,8 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
   sleep 3
 fi
 
+sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
+
 # Install essential packages
 sudo pacman -S brightnessctl xwallpaper htop lf xorg-xset xdotool alsa-utils \
   ttf-font-awesome ttf-hack ttf-hack-nerd noto-fonts-emoji xcompmgr fastfetch \
@@ -41,11 +43,11 @@ cat <<"EOF"
 
 EOF
 cp -r $HOME/archrice/.local/share/* $HOME/.local/share
-\cp $HOME/archrice/.local/bin/* $HOME/.local/bin
-\cp -r $HOME/archrice/.config/* $HOME/.config
-\cp $HOME/archrice/.bashrc $HOME/.bashrc
-\cp $HOME/archrice/.inputrc $HOME/.inputrc
-\cp $HOME/archrice/.xinitrc $HOME/.xinitrc
+cp $HOME/archrice/.local/bin/* $HOME/.local/bin
+cp -r $HOME/archrice/.config/* $HOME/.config
+cp $HOME/archrice/.bashrc $HOME/.bashrc
+cp $HOME/archrice/.inputrc $HOME/.inputrc
+cp $HOME/archrice/.xinitrc $HOME/.xinitrc
 
 # Clone walls
 git clone --depth=1 https://github.com/nyx-void/void-wall $HOME/.local/share/void-wall
@@ -77,5 +79,8 @@ cat <<"EOF"
 Installation completed successfully.
 ####################################
 EOF
+
+sleep 1
+reboot
 
 # End of script
