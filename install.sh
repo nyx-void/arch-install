@@ -20,7 +20,7 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
   sleep 3
 fi
 
-sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
+sudo sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
 
 # Install essential packages
 sudo pacman -S brightnessctl xwallpaper htop lf xorg-xset xdotool alsa-utils \
